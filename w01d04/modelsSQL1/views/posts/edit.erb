@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+    body {background-color: powderblue;}
+    h1   {color: blue;}
+    h2 {color: green;}
+    p    {color: red;}
+    table {border-collapse: collapse; font-family: helvetica;}
+    td, th {border: 1px solid black; padding: 8px; }
+    tr:nth-child(even) {background-color: #dddddd; }
+  </style>
+    <meta charset="utf-8">
+    <title>Edit Form</title>
+  </head>
+  <body>
+
+      <h1>EDIT posts from the DATABASE "Blog", TABLE "post".</h1>
+
+       
+  <%@post.each do |post|%>
+
+
+  <h2>post id: <%= post["id"]%></h2>
+
+  <form action="/posts/<%= post["id"]%> " method="POST">
+
+    <div>
+      <label>New ID</label><br>
+      <input type="text" name="id" value=" <%= post["id"]%> ">
+    </div>
+
+    <div>
+      <label>New Name</label><br>
+      <input type="text" name="name" value=" <%= post["name"]%> ">
+    </div>
+
+    <div>
+      <label>New Body text</label><br>
+      <textarea name="body"> <%= post["body"]%> </textarea>
+    </div>
+
+  <input type="submit" value="Update post">
+  <input type="hidden" name="_method" value="put">
+
+ <% end %>
+
+
+</form>
+
+
+
+
+  </body>
+</html>

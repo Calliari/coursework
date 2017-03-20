@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <style>
+        body {background-color: powderblue;}
+        h1   {color: blue;}
+        h2 {color: green;}
+        p    {color: red;}
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+
+          }
+        td, th {
+          border: 1px solid black;
+          text-align: left;
+          padding: 8px;
+        }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+        </style>
+    <title>Index Page</title>
+  </head>
+  <body>
+    <h1>Index Page</h1>
+
+    <p>Click in this link <a href="/users/form"> users/form  </a> to go to person form page</p>
+    <p>Click in this link <a href="/users/person"> users/users </a> to go to person form page</p>
+
+
+    <h2>Homework</h2>
+
+    <h3>Repeat process up to this point for a users class</h3>
+
+    <ol>
+      <li>Create a new user class, add some parameters that make sense</li>
+      <li>Create an index loop that displays a ( dummy ) list of users</li>
+      <li>Create a show page that displays a single user ( pulled from the dummy array just like posts )</li>
+      <li>Create a “new” form for a user object</li>
+    </ol>
+
+<hr>
+
+    <h3>Displays a ( dummy ) list of users</h3>
+
+  <table>
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th>Last Name</th>
+      <th>Sex</th>
+      <th>Nationality</th>
+      <th>Telephone</th>
+      <th>Address</th>
+      <th>Postcode</th>
+    </tr>
+    <tr><%@users.each_with_index do |user, index|%>
+      <td><%= "#{index}" %> </td>
+      <td><a href="/users/<%= index %>"><%= user.name %> </a></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.sex %></td>
+      <td><%= user.nationality %></td>
+      <td> <%= user.telephone %> </td>
+      <td><%= user.address %></td>
+      <td><%= user.postcode %></td>
+    </tr><% end %>
+  </table>
+
+
+
+  </body>
+</html>
