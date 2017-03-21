@@ -1,0 +1,21 @@
+<h1>Pictures#show</h1>
+<p>Find me in app/views/pictures/show.html.erb</p>
+
+<div id="pictures">
+	<div class="picture">
+	<img src=" /img/<%= @pictures.img %>" title=" <%= @pictures.img %> ">
+		<p><%= @pictures.caption %></p>
+		<p><%= @pictures.img %> </p>
+		  <form action="<%= picture_path @pictures %>" method="POST">
+		    <input type="submit" value="Delete">
+		    <input type="hidden" name="_method" value="DELETE">
+		    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		  </form>
+		
+	</div>
+
+</div>
+
+
+
+ 		

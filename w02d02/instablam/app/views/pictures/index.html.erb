@@ -1,0 +1,17 @@
+<h1>Pictures#index</h1>
+<p>Find me in app/views/pictures/index.html.erb</p>
+
+
+<a class="btn btn-default" href="/pictures/new" role="button">Add a new picture</a>
+
+<div id="pictures">
+	<% @pictures.each do |pic| %>
+	<div class="picture">
+	<a href=" /picture/<%= pic.id %>/show "><img src=" /img/<%= pic.img %> " title=" <%= pic.img %> "> </a>
+		<p><%= pic.caption %></p>
+		<p><%= pic.id %></p>
+	</div><% end %>
+</div>
+
+
+

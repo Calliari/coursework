@@ -1,0 +1,19 @@
+<h1>New Picture</h1>
+
+<form action="<%= pictures_path %>" method="POST">
+
+  <div>
+    <label>Image URL</label>
+    <input type="text" name="picture[img]">
+  </div>
+
+  <div>
+    <label>Caption</label>
+    <textarea name="picture[caption]"></textarea>
+  </div>
+
+  <input type="submit" value="Save">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+   
+  
+</form>

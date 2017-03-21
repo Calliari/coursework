@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+        body {background-color: powderblue;}
+        h1   {color: blue;}
+        h2 {color: green;}
+        p    {color: red;}
+        table {border-collapse: collapse; font-family: helvetica;}
+        td, th {border: 1px solid black; padding: 8px; }
+        tr:nth-child(even) {background-color: #dddddd; }
+    </style>
+
+    <title>Search post</title>
+  </head>
+  <body>
+
+      <h1>Search post by ID</h1>
+
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>BODY</th>
+          <th>EDIT - DELETE</th>
+        </tr>
+        <tr><%@posts.each_with_index do |post, index|%>
+          <td><%= post["id"]%> </td>
+          <td><a href="/users/<%= index %>"></a><%= post["name"] %></td>
+          <td><%= post["body"] %></td>
+          <td>
+          <button><a href="/posts/<%= post["id"] %>/edit">Edit</a> </button>
+          <form action="/posts/<%= post["id"] %>" method="POST">
+            <input type="submit" value="delete">
+            <input type="hidden" name="_method" value="DELETE">
+          </form>
+          </td>>
+        </tr><% end %>
+      </table>
+     
+
+  </body>
+</html>

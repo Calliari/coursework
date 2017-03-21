@@ -35,8 +35,14 @@ class PostModel
 
     # load some data from the database
     conn.exec_params("SELECT * FROM post WHERE id =$1",[id]) 
-   
+
     # hyrdate it
+
+    # data = conn.exec_params("SELECT * FROM post WHERE id =$1",[id]) 
+   
+    # self.hyrdate data[0]
+
+
   end
 
   def self.delete id
@@ -53,8 +59,14 @@ class PostModel
     conn = PG.connect(dbname: "blog")
 
     # update the post in the database
-    conn.exec_params("UPDATE post SET name =$2, body =$3 
-      WHERE id = $1", [id, post_name, post_body]); 
+    conn.exec("UPDATE post SET name = '#{post_name}', body ='#{post_body}' WHERE id = #{id}"); 
+
+    puts "UPDATE post SET name = '#{post_name}', body ='#{post_body}' WHERE id = #{id}"
+
+    
+
+    # conn.exec_params("UPDATE post SET name =$2, body =$3 
+    #   WHERE id = $1", [id, post_name, post_body]); 
 
   end
 

@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #C7D8E0;
+}
+.nav {
+	display: inline-block;
+}
+
+.portfolio-footer {
+	background-color: #232c3c;
+	color: #DEF1F9;
+	padding: 25px;
+}
+
+.portfolio-footer  img{
+	display: inline-block;
+}
+
+.pic-text{
+	display: inline-block;
+}
+
+.jum-txt {
+	border-radius: 15px;
+}
+
+.pic{
+	border-radius: 80px;
+	width: 70%;
+	height: 70%;
+}
+
+.terminal{
+	background-color: #2a2c2d;
+	color: white;
+
+}
+.Green {
+	color: #44d11f;
+}
+.Red {
+	color: #FC1423;
+}
+.jumbotron {
+	margin: 8px;
+}
+

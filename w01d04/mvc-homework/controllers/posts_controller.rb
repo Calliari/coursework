@@ -11,30 +11,31 @@ class PostsController < Sinatra::Base
 
 
   # this the root from sinatra and the (do end) is the controller
-  get "/" do
-    "404"
-    "This is not the correct page, try ''/posts/show' instead! "
+  # get "/" do
+  #   "404"
+  #   "This is not the correct page, try ''/posts/index' instead! "
+  #
+  # end
+
+  #################### starts ############################
+  # this the root from sinatra and the (do end) is the controller
+  get "/" do # READ use get
+
+    @users = $users
 
     erb :index
   end
 
-  #################### starts ############################
+  get "/new" do # READ use get
 
-  get "/posts" do # READ use get
+     erb :new
+  end
 
-    @users = [
-      User.new("Jhon", "Smith", "Male", "American", "075 2323 2343", "12 Down Street", "ZTB 2121"),
-      User.new("Anna", "Therst", "Female", "Russian", "098 1234 9999", "67 Ghrat hrastsz", "zZtT oIo"),
-      User.new("Cesar", "Slovak", "Male", "Greek", "039 777 8989", "23 viltterd", "OTV 551"),
-      User.new("Luca", "Sanci", "Male", "Italian", "079 999 5522", "521 Via Martinengo", "IT JONP")
-      ]
+  get "/:id" do # READ use get
 
+      id = params[:id].to_i
 
-      # @array = ["A", "B", "C"]
-      #
-      #
-      #
-      #  @users = User.new("Jhon", "Smith", "Male", "American", "075 2323 2343", "12 Down Street", "ZTB 2121")
+      @user = $users[id]
 
     erb :show
   end

@@ -69,6 +69,7 @@ end
 
 # PostgreSQL "SELECT * FROM post;" Display all data from post
 # PostgreSQL "SELECT * FROM post WHERE id = 3;" Display post by ID
+# PostgreSQL "INSERT INTO post (name,body) VALUES ('Post 4', 'Post 4 - this is another text ');  
 
 ################ loop trough all b.name ############################################
  #   @b= PostModel.all

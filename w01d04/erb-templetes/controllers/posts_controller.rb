@@ -6,35 +6,84 @@ class PostsController < Sinatra::Base
     # sets the view directory correctly
     set :views, Proc.new { File.join(root, "views") }
 
-
+# CREATE
   get "/" do
-    # dummy data for testing
-    @posts = $posts
-
-
+  @posts = $posts
     erb :index
   end
 
+  get "/new" do
+     erb :new
+  end
+
+  get "/:id/edit" do
+
+    @id  = params[:id].to_i
+
+    #load the required post from tha "Database"
+    @post = $posts[@id]
+
+    erb :edit
+
+  end
+
+  get "/:id" do
+
+    id  = params[:id].to_i
+    @post = $posts[id]
+
+    erb :show
+  end
+
+# dummy data for testing 2
   get "/articles" do
-    # dummy data for testing 2
-
-    @articles = [
-      Article.new("Article - Ruby", "Some post text about RUBYSome post text about RUBYSome post text about RUBY", "05/03/2017"),
-      Article.new("Article - javascript", "Some post text about javascriptSome post text about javascriptSome post text about javascript", "10/03/2016"),
-      Article.new("Article - C#", "Some post text about C# tSome post text about C# Some post text about C#", "10/12/2015")
-    ]
-
+    @articles = $articles
     erb :show1
   end
 
+  post "/" do
+    #create new posts
+    post = Post.new params[:name], params[:body]
 
-  get "/new" do
-    # dummy data for testing
-    "Hello"
+    #save post ro "Database" (push to array)
+    $posts.push post
 
-
-    # erb :new
+    #redirect
+    redirect "/posts"
   end
+
+  put "/:id" do
+
+    # load the object we want to update
+      id  = params[:id].to_i
+
+      # dummy data
+      post = $posts[id]
+
+      # put the changes in to the object
+      post.name = params[:name]
+      post.body = params[:body]
+
+    # save to the database
+    $posts[id] = post
+
+    # redirect to anothe page (index)
+    #redirect "/posts/#{id}"
+    redirect "/posts/"
+
+  end
+
+  delete "/:id" do
+
+    id = params[:id].to_i
+
+    $posts.delete_at id
+
+    redirect "/posts"
+
+  end
+
+
 
 
 

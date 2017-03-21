@@ -15,10 +15,19 @@
 
     <h1>All Posts Page</h1>
 
+    <a href="#"></a>
+
 <ul>
-    <% @posts.each_with_index do |post| %>
-       <li><%= post.name %> <%= post.body %></li>
-    <% end %>
+<% @posts.each_with_index do |post,index| %>
+        <li>
+          <a href="/posts/<%= index %>"><%= post.name %></a>
+          <a href="/posts/<%= index %>/edit">edit</a>
+          <form action="/posts/<%= index %>" method="POST">
+              <input type="submit" value="delete">
+              <input type="hidden" name="_method" value="DELETE">
+          </form>
+        </li>
+      <% end %>
 </ul>
 
 
