@@ -11,7 +11,8 @@ class PicturesController < ApplicationController
   def show
 
   	# load the picture by id
-  	@pictures = Picture.find(params[:id])
+  	@picture = Picture.find(params[:id])
+  
 
   	render :'pictures/show'
 
@@ -41,3 +42,6 @@ private
   end
 
 end
+
+
+# 
