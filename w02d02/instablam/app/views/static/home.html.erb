@@ -1,2 +1,5 @@
-<h1>Static#home</h1>
+<h1>welcome page</h1>
 <p>Find me in app/views/static/home.html.erb</p>
+
+
+  <% skip_before_action :require_login, only: [:new, :create] %>

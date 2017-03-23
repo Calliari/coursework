@@ -14,63 +14,37 @@ pic4 = Picture.create({ img: 'image4.png', caption: 'Fouth image'})
 user = User.create({name:"Steve"})
 user1 = User.create({name:"Sam"})
 
-comm1 = Comment.create({ body: 'Comment1 - Steve'})
-comm2 = Comment.create({ body: 'Comment2 - Steve'})
-comm3 = Comment.create({ body: 'Comment1 - Sam'})
-comm4 = Comment.create({ body: 'Comment2  - Sam'})
+comm1 = Comment.create({ body: 'text'})
+comm2 = Comment.create({ body: 'body text - Steve'})
+comm3 = Comment.create({ body: 'body text - Sam'})
+comm4 = Comment.create({ body: 'body text - Sam'})
 
 
 
-user.picture.push pic1
-user.picture.push pic2
-user.comment.push comm1
-user.comment.push comm2
+user.pictures.push pic1
+user.pictures.push pic2
+user.comments.push comm1
+user.comments.push comm2
 
-user1.picture.push pic3
-user1.picture.push pic4
-user1.comment.push comm3
-user1.comment.push comm4
+user1.pictures.push pic3
+user1.pictures.push pic4
+user1.comments.push comm3
+user1.comments.push comm4
 
-comm1.picture = pic1 
+comm1.picture = pic1
 comm1.save
-
-comm2.picture = pic2 
+comm2.picture = pic2
 comm2.save
-
-comm3.picture = pic3 
+comm3.picture = pic2
 comm3.save
-
-comm4.picture = pic4
+comm4.picture = pic3
 comm4.save
 
+# likes
+
+user.liked.push pic1
+user.liked.push pic2
+user1.liked.push pic3
+user1.liked.push pic1
+
 # pic1.comm1
-
-
-
-
-
-
-			############ SQL ########
-
-
-# update comments set body = "testing" where id = 1;
-
-			############ Add foreing keys ########
-
-# rails generate migration AddUserRefToComments user:references
-# rails generate migration AddPictureRefToComments picture:references
-
-			############ Create ########
-
-#rails generate migration CreateComments body:text
-
-
-			############ Create Models with timeStamp ########
-
-#rails generate model Comment body:string picture:references
-
-
-
-			############ Joints ########
-
-rails g migration CreateJoinTableCustomerProduct customer product

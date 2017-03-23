@@ -1,46 +1,22 @@
 Rails.application.routes.draw do
 
- #  get 'comments/create'
+# post "users/:user_id/followers" , to "followers#create"
 
- #  get 'comments/action'
+ resources :sessions, only: [:new, :create]
 
-	# # root 'static#home'
-
-  get 'picture' , to: 'pictures#index'
+ get '/logout', to: "sessions#destroy"
 
 
-  get 'picture/:id/show' , to: 'pictures#show'
-
- #   get 'picture/new' , to: 'pictures#create'
-
-
-
-
-	 resources :pictures do
-	 	resources :comments , only: [:create]
-	 end
-
-
-
-
-
-	 root 'static#home'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users do
+    resources :followers, only: [:create, :delete]
 end
 
 
+  resources :pictures do
+    resources :comments, only: [:create]
+    resources :likes, only: [:create]
+  end
 
-######### show.html.erb #############
-
-# <div class="comment"> 
-# <% @pictures.comments.each do |comm| %>
-
-# <h4> <% comm.user.name %> 
-# <% if  comm.user.pictures.fist %>" >	
-# <img src=" <%= comm.user.pictures.first.img %> >%" alt= "">
-# <% end %>
-
-# (<%= comm.user.comments.length %> )</h4>
-# <p> <% comm.body %> </p>
-# <% end %>
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'static#home'
+end

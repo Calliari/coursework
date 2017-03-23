@@ -1,18 +1,15 @@
-
 <section class="text-center">
 
 <h1>Welcome to Instablam!</h1>
 
 
 
-
-
 <div id="pictures">
 	<% @pictures.each do |pic| %>
 	<div class="picture">
-	<a href=" /picture/<%= pic.id %>/show "><img src=" /img/<%= pic.img %> " title=" <%= pic.img %> "> </a>
+	<a href=" <%= url_for pic %> "><img src=" /img/<%= pic.img %> " title=" <%= pic.img %> "> </a>
 		<p><%= pic.caption %></p>
-		<p><%= pic.id %></p>
+		<li><%= link_to pic.id , pic %></li>
 	</div><% end %>
 </div>
 
@@ -22,5 +19,3 @@
 
 
 </section>
-
-

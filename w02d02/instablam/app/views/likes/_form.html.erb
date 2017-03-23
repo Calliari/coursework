@@ -1,0 +1,6 @@
+<form class="" action="<%= picture_likes_path picture %>" method="Post">
+
+  <input type="submit" value="like( <%= @picture.likes.length %> )">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+</form>

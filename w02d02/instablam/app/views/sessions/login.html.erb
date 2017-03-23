@@ -1,0 +1,22 @@
+<h1>Login</h1>
+
+<% if @message %>
+<p><%= @message %></p>
+<% end %>
+
+
+<form action="<%= sessions_path %>" method="POST">
+
+	Email addres:<br>
+	<input type="text" name="session[email]">
+
+	Password:<br>
+	<input type="password" name="session[password]" >
+	
+ 	<input type="submit" name="">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+</form>
+
+
+

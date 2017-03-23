@@ -1,0 +1,2 @@
+module PitcureHelper
+end

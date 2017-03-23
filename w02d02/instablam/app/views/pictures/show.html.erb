@@ -1,60 +1,47 @@
-<section class="text-center center-block">
+<h1>SHOW</h1>
 
-	<h1>Pictures#show</h1>
-	<p>Find me in app/views/pictures/show.html.erb</p>
-	<h1>Picture ID: <%= @picture.id %></h1>
-	<p>Picture Caption: <%= @picture.caption %></p>
-	<p>Picture img:  <%= @picture.img %> </p>
+  <h1>Picture ID: <%= @picture.id %></h1>
+<hr>
+<div class="picture">
+  <img src="<%= @picture.img %>" />
+   <p><%= @picture.caption %></p>
+  <form action="<%= picture_path @picture %>" method="POST">
+    <input type="submit" value="Delete Image">
+    <input type="hidden" name="_method" value="DELETE">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  </form>
 
-	<div id="pictures">
-		<div class="picture">
-		<img src=" /img/<%= @picture.img %>" title=" <%= @picture.img %> ">
+  
+ <!-- comment form partial to like tha picrues -->
+  <%= render "comments/form" , picture: @picture %>
+  
+  <!-- likes form partial to like tha picrues -->
+ <%= render "likes/form" , picture: @picture %>
 
-			
+ <!-- followers form partial to like tha picrues -->
+ <%= render "followers/followers_button" , {user: @picture.user , return_to: picture_path(@picture)} %>
 
-			  <form action="<%= picture_path @pictures %>" method="POST">
-			    <input type="submit" value="Delete">
-			    <input type="hidden" name="_method" value="DELETE">
-			    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-			  </form>
-		</div>
-	</div>
-	</div>
+</div>
 
-	
-</section>
+<hr>
 
+<div class="comment">
 
- <section class="container">
+<%  @picture.comments.reverse.each do |comm| %>
 
- <table class="table table-hover tb_comment ">
-	  <tr>
-	    <th>Name</th>
-	    <th>Comment</th> 
-	  </tr>
-	  	<% @picture.comments.reverse.each do |comm| %>
-	  <tr>
-	   <td> 
-	    <h4> <%= comm.user.name %> </h4>
-	    <h4>(<%= comm.user.comments.length %> )</h4>
-	  </td>
-	    	<% if  comm.user.pictures.first %>" >
-	    	<img src=" <%= comm.user.pictures.first.img %> >%" alt= "">
-	    	<% end %>
-	    <td>
-			<p> <%= comm.body %> </p>
-			<% end %>
-		</td> 
+  <h2>  <%= comm.user.name %>
+    <% if comm.user.pictures.first %>
+      <img src=" <%= comm.user.pictures.first.img %>" alt="">
+    <% end %>
 
-	  </tr>
-	</table>
-
-      
-
- </section> <!-- /container -->
+  (<%= comm.user.comments.length %>) </h2>
+  <h1>  <%= comm.body %> </h1>
 
 
- <%= render 'comments/form' , picture: @picture %>
+  <% end %>
+
+
+</div>
 
 
 
@@ -62,4 +49,3 @@
 
 
 
- 		
