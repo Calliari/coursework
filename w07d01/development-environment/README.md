@@ -59,7 +59,7 @@ end
 >>``` vagrant up ```
 
 
->> To run the web server type:.
+>> This will SSH into a running Vagrant machine and give you access to a shell:
 
 >> ``` vagrant ssh ```
 >> ### The vistual machine with the OS chose will be running now...
