@@ -2,8 +2,11 @@
 
   <h1>Picture ID: <%= @picture.id %></h1>
 <hr>
+
+
 <div class="picture">
-  <img src="<%= @picture.img %>" />
+  <img src="<%= @picture.image.thumb.url %>" />
+   <p><%= @picture.user.name%></p>
    <p><%= @picture.caption %></p>
   <form action="<%= picture_path @picture %>" method="POST">
     <input type="submit" value="Delete Image">
@@ -31,7 +34,7 @@
 
   <h2>  <%= comm.user.name %>
     <% if comm.user.pictures.first %>
-      <img src=" <%= comm.user.pictures.first.img %>" alt="">
+      <img src=" <%= comm.user.pictures.first.image %>" alt="">
     <% end %>
 
   (<%= comm.user.comments.length %>) </h2>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-# post "users/:user_id/followers" , to "followers#create"
+# post "users/:user_id/followers" , to: "followers#create"
 
  resources :sessions, only: [:new, :create]
 

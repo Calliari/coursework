@@ -1,0 +1,27 @@
+// Place all the styles related to the static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#login {
+
+  height:100%;
+  background-image: image-url("home-background.jpg");
+  background-size: cover;
+
+}
+
+#article {
+
+  section {
+    padding:50px;
+  }
+
+  .photo {
+
+    padding:20px;
+
+  }
+
+}

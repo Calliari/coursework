@@ -1,19 +1,25 @@
 <h1>New Picture</h1>
 
 
-<form action="<%= pictures_path%>" method="POST" >
+<form action="<%= pictures_path%>" method="POST" enctype='multipart/form-data'>
 
 <div>
-
-  <label>Iamge Url</label>
-  <input type="text" name ="picture[img]">
+  <label>Image Url</label>
+  <input type="text" name ="picture[image]">
 </div>
 
 <div>
-
   <label>Caption</label>
   <textarea name="picture[caption]"></textarea>
 </div>
+
+<!-- Image uploader -->
+<div>
+  <label>Image</label>
+  <input type="file" name="picture[image]">
+</div>
+
+
 <input type="submit" value="save">
 <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 

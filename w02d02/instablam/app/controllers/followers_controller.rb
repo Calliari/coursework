@@ -1,17 +1,13 @@
 class FollowersController < ApplicationController
-	def create
-    
+  def create
 
-    # get the two users
- user  = User.find 1
 
- user = User.find params[:user_id]
+    user = User.find params[:user_id]
 
-#make th follower
- user.followers.push follower 
+    user.followers.push current_user
 
- 
-redirect_to params[:return_to]
+    redirect_to params[:return_to]
+
     
   end
 
@@ -20,3 +16,4 @@ redirect_to params[:return_to]
 
   end
 end
+
