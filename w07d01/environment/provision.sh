@@ -14,18 +14,13 @@ sudo npm cache clean -f
 sudo apt-get install -y nodejs
 
 # install node.js  version 7
-# curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-# sudo apt-get install -y nodejs
+ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+ sudo apt-get install -y nodejs
 
 
 # install the pm2 from npm
-npm install -g pm2
+sudo npm install -g pm2
 
 #  Install the git 
 apt-get install git -y
-
-
-
-# npm install
-# node app.js
 
